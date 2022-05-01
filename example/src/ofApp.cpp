@@ -15,7 +15,8 @@ void ofApp::update() {
 	float t = ofGetElapsedTimef();
 	kinect.update();
 	
-	depthImg.setFromPixels(kinect.getDepthPixels(), kinect.getWidth(), kinect.getHeight());
+	// https://forum.openframeworks.cc/t/video-frame-to-unsigned-char/28095
+	depthImg.setFromPixels(kinect.getDepthPixels().getData(), kinect.getWidth(), kinect.getHeight());
 	
 	inpaintedImg = depthImg;
 	inpainter.inpaint(inpaintedImg);
@@ -36,7 +37,7 @@ void ofApp::draw() {
 	
 	ofEnableAlphaBlending();
 	glColor4f(0, 0, 0, 0.7);
-	ofRect(10, ofGetHeight()-30, 540, 15);
+	ofDrawRectangle(10, ofGetHeight()-30, 540, 15);
 	ofSetHexColor(0x44CC44);
 	ofDrawBitmapString("Move your mouse to change the inpaint radius and downsample factor", 20, ofGetHeight()-20);
 }

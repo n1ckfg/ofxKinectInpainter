@@ -10,7 +10,7 @@ class ofxKinectInpainter {
 		 * The amount of downsampling will determine the quality.
 		 * 4 is quarter-sized, but real-time.
 		 */
-		void setup(int width = 640, int height = 480, int downsampling = 4);
+		void setup(int _width = 640, int _height = 480, int _downsampling = 4);
 		
 		/**
 		 * This is a parameter of the inpainting algorithm, the higher the better
@@ -28,8 +28,8 @@ class ofxKinectInpainter {
 		ofxCvGrayscaleImage scaled;
 		ofxCvGrayscaleImage mask;
 		ofxCvGrayscaleImage scaledMask;
-		
 		ofxCvGrayscaleImage inpainted;
+
 		float scale;
 		int width;
 		int height;

@@ -5,14 +5,15 @@ ofxKinectInpainter::ofxKinectInpainter() {
 	inpaintRadius = DEFAULT_INPAINT_RADIUS;
 }
 
-void ofxKinectInpainter::setup(int width, int height, int downsampling) {
-	scale = downsampling;
-	this->width = width;
-	this->height = height;
+void ofxKinectInpainter::setup(int _width, int _height, int _downsampling) {
+	scale = _downsampling;
+	width = _width;
+	height = _height;
+	
 	mask.allocate(width, height);
 	inpainted.allocate(width, height);
-	scaled.allocate((float)width/scale, (float)height/scale);
-	scaledMask.allocate((float)width/scale, (float)height/scale);
+	scaled.allocate((float) width / scale, (float) height / scale);
+	scaledMask.allocate((float) width / scale, (float) height / scale);
 }
 
 // inpainting happens at a low resolution becuse it's quite
